@@ -8,7 +8,8 @@ import { BookDetails } from './BookDetails';
 })
 export class LibraryService {
 //HttpClient
-configUrl = "http://216.10.245.166//Library/GetBook.php?AuthorName=Shetty1";
+// configUrl = "http://216.10.245.166//Library/GetBook.php?AuthorName=Shetty1";
+configUrl = "https://216.10.245.166//Library/GetBook.php?AuthorName=Shetty1";
   constructor(private http : HttpClient) { }
 
 getBookDetails() : Observable<BookDetails[]>
