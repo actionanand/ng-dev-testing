@@ -8,12 +8,13 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { ProductShopComponent } from './product-shop/product-shop.component';
 
 const routes: Routes =
- [ {path: 'products/:productId', component: ProductShopComponent },
- {path: 'products', component: ProductDetailsComponent },
- {path: 'cart', component: CartItemsComponent },
- {path: '', component: LandingpageComponent },
- {path: 'checkout', component: CheckoutformComponent },
- {path: 'library', component: LibraryDashboardComponent }
+ [ 
+  {path: 'products/:productId', component: ProductShopComponent },
+  {path: 'products', component: ProductDetailsComponent },
+  {path: 'cart', component: CartItemsComponent },
+  {path: '', component: LandingpageComponent },
+  {path: 'checkout', component: CheckoutformComponent },
+  {path: 'library', component: LibraryDashboardComponent }
 ];
 
 @NgModule({

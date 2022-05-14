@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { products } from 'src/data/products';
-import { Product } from 'src/product';
+import { products } from '../data/products';
+import { Product } from '../model/product';
 
 @Component({
   selector: 'app-product-details',
@@ -13,19 +13,17 @@ export class ProductDetailsComponent implements OnInit {
   products : Product[]= products;
   isUnchanged = true;
 
-
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
-  clickMe(product : Product)
-  {
+  clickMe(product : Product) {
     window.alert(product.name +"Course videos are available in your location to purchase");
   }
 
-  enableBuying()
-  {
+  enableBuying() {
     this.isUnchanged  = !this.isUnchanged;
   }
 

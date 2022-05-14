@@ -7,21 +7,17 @@ import { BookDetails } from './BookDetails';
   providedIn: 'root'
 })
 export class LibraryService {
-//HttpClient
-// configUrl = "http://216.10.245.166//Library/GetBook.php?AuthorName=Shetty1";
-configUrl = "https://216.10.245.166//Library/GetBook.php?AuthorName=Shetty1";
+  // configUrl = 'http://216.10.245.166//Library/GetBook.php?AuthorName=Shetty1';
+  configUrl = 'https://raw.githubusercontent.com/actionanand/json-server/main/db/api/ng-dev-testing/library.json';
+
   constructor(private http : HttpClient) { }
 
-getBookDetails() : Observable<BookDetails[]>
+  getBookDetails() : Observable<BookDetails[]> {
+    return this.http.get<BookDetails[]>(this.configUrl);
+  }
 
-{
-  return this.http.get<BookDetails[]>(this.configUrl);
-
-}
-
-addBook()
-{
-  
-}
+  addBook() {
+    
+  }
 
 }

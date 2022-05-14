@@ -6,7 +6,4 @@ export interface Product {
     status: string,
     description: string,
     imgaddress : string
-
-
-
 }

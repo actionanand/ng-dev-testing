@@ -1,8 +1,6 @@
-export class Contact
-{
-
-firstName :string;
-lastName : string;
-email : string;
-password : string;
+export class Contact {
+  firstName :string;
+  lastName : string;
+  email : string;
+  password : string;
 }

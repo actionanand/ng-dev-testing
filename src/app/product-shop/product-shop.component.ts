@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { products } from 'src/data/products';
-import { Product } from 'src/product';
+
 import { CartService } from '../cart.service';
+import { products } from '../data/products';
+import { Product } from '../model/product';
 
 @Component({
   selector: 'app-product-shop',
@@ -10,35 +11,29 @@ import { CartService } from '../cart.service';
   styleUrls: ['./product-shop.component.css']
 })
 export class ProductShopComponent implements OnInit {
-product:Product;
-submitted = false;
-text : string = "Add to Cart";
-disabledButton = false;
+  product:Product;
+  submitted = false;
+  text : string = "Add to Cart";
+  disabledButton = false;
   constructor(private route :ActivatedRoute,private cart:CartService) { }
 
   ngOnInit(): void {
 
-//code to retrieve product
-//ActivatedRoute
-//service can be injected into component class by calling its object 
-//in constructor  - (Dependency Injection)
+    //code to retrieve product
+    //ActivatedRoute
+    //service can be injected into component class by calling its object 
+    //in constructor  - (Dependency Injection)
     const routeParams =this.route.snapshot.paramMap;
-   const id = Number(routeParams.get("productId"));
-  this.product= products.find(product=> product.id ===id);
-
-
-
+    const id = Number(routeParams.get("productId"));
+    this.product= products.find(product=> product.id ===id);
   }
 
-  addToCart()
-  {
+  addToCart() {
     this.disabledButton = true;
     this.text = "Added to Cart";
     //service
     this.submitted = true;
     this.cart.addProductstoCart(this.product);
-
-
   }
 
 }
