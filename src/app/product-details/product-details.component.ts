@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { products } from '../data/products';
 import { Product } from '../model/product';
 
@@ -9,8 +10,8 @@ import { Product } from '../model/product';
 })
 export class ProductDetailsComponent implements OnInit {
 
-  title : string ="AR Solutions";
-  products : Product[]= products;
+  title : string = 'AR Solutions';
+  products : Product[] = products;
   isUnchanged = true;
 
   constructor() { }
@@ -20,7 +21,7 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   clickMe(product : Product) {
-    window.alert(product.name +"Course videos are available in your location to purchase");
+    window.alert(product.name + 'Course videos are available in your location to purchase');
   }
 
   enableBuying() {

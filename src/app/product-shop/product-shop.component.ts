@@ -13,7 +13,7 @@ import { Product } from '../model/product';
 export class ProductShopComponent implements OnInit {
   product:Product;
   submitted = false;
-  text : string = "Add to Cart";
+  text : string = 'Add to Cart';
   disabledButton = false;
   constructor(private route :ActivatedRoute,private cart:CartService) { }
 
@@ -24,13 +24,13 @@ export class ProductShopComponent implements OnInit {
     //service can be injected into component class by calling its object 
     //in constructor  - (Dependency Injection)
     const routeParams =this.route.snapshot.paramMap;
-    const id = Number(routeParams.get("productId"));
+    const id = Number(routeParams.get('productId'));
     this.product= products.find(product=> product.id ===id);
   }
 
   addToCart() {
     this.disabledButton = true;
-    this.text = "Added to Cart";
+    this.text = 'Added to Cart';
     //service
     this.submitted = true;
     this.cart.addProductstoCart(this.product);

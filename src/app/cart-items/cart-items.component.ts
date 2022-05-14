@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { CartService } from '../cart.service';
 
 @Component({
@@ -8,53 +9,40 @@ import { CartService } from '../cart.service';
 })
 export class CartItemsComponent implements OnInit {
 
-   products = this.cart.getProducts();
-   sum :number;
-   newPrice :number;
-   shippingPrice = 8;
-   totalPrice :number;
-  
+  products = this.cart.getProducts();
+  sum :number;
+  newPrice :number;
+  shippingPrice = 8;
+  totalPrice :number;
 
   constructor(private cart : CartService) { }
 
   ngOnInit(): void {
-
     this.updateSum();
-
   }
 
-  updateSum()
-  {
+  updateSum() {
     this.sum = 0;
-    for(let i=0;  i<this.products.length;i++)
-    {
-     this.sum = this.sum +this.products[i].price;
+
+    for(let i=0;  i<this.products.length;i++) {
+      this.sum = this.sum +this.products[i].price;
     }
     
     this.totalPrice = this.sum + this.shippingPrice;
-
-
   }
 
 
-    onKey(product,value)
-    {
-        //product.price = original price
-        //value * product.price = new price
-        //sum -original price +new price
-        this.newPrice = value * product.price;
-        this.sum = this.sum - product.price + this.newPrice;
-        this.totalPrice = this.sum + this.shippingPrice;
+  onKey(product,value) {
+      //product.price = original price
+      //value * product.price = new price
+      //sum -original price +new price
+      this.newPrice = value * product.price;
+      this.sum = this.sum - product.price + this.newPrice;
+      this.totalPrice = this.sum + this.shippingPrice;
+  }
 
-    }
-
-
-    
-
-  deleteProduct(product)
-  {
+  deleteProduct(product) {
     let arr=this.products;
-  
     console.log(this.products);
     const index =this.products.indexOf(product);
     arr.splice(index,1);
@@ -62,9 +50,6 @@ export class CartItemsComponent implements OnInit {
     console.log(this.products);
     this.products = arr;
     this.updateSum();
-
   }
 
-
 }
-

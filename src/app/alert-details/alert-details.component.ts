@@ -18,7 +18,7 @@ export class AlertDetailsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-
+    
   }
 
   clickChildMe() {

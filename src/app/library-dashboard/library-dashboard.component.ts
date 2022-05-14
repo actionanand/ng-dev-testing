@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { BookDetails } from '../BookDetails';
-import { LibraryService } from '../library.service';
+import { LibraryService } from '../services/library.service';
 
 @Component({
   selector: 'app-library-dashboard',
@@ -10,14 +11,14 @@ import { LibraryService } from '../library.service';
 export class LibraryDashboardComponent implements OnInit {
 
   bookDetails :BookDetails[];
-  constructor(private lib :LibraryService) { }
+  constructor(private libServ :LibraryService) { }
 
   ngOnInit(): void {
 
     
-    this.lib.getBookDetails().subscribe(data=> this.bookDetails = data);
+  this.libServ.getBookDetails().subscribe(data=> this.bookDetails = data);
     
-   console.log(this.bookDetails);
+  console.log(this.bookDetails);
 
   }
 

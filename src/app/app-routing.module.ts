@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { CartItemsComponent } from './cart-items/cart-items.component';
 import { CheckoutformComponent } from './checkoutform/checkoutform.component';
 import { LandingpageComponent } from './landingpage/landingpage.component';
