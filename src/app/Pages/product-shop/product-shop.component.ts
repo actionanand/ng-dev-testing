@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { CartService } from '../cart.service';
-import { products } from '../data/products';
-import { Product } from '../model/product';
+import { CartService } from '../../services/cart.service';
+import { products } from '../../data/products';
+import { Product } from '../../model/product';
 
 @Component({
   selector: 'app-product-shop',
@@ -15,7 +15,7 @@ export class ProductShopComponent implements OnInit {
   submitted = false;
   text : string = 'Add to Cart';
   disabledButton = false;
-  constructor(private route :ActivatedRoute,private cart:CartService) { }
+  constructor(private route: ActivatedRoute,private cartServ: CartService) { }
 
   ngOnInit(): void {
 
@@ -33,7 +33,7 @@ export class ProductShopComponent implements OnInit {
     this.text = 'Added to Cart';
     //service
     this.submitted = true;
-    this.cart.addProductstoCart(this.product);
+    this.cartServ.addProductstoCart(this.product);
   }
 
 }

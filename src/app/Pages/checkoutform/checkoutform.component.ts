@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Contact } from '../Contact';
+import { Contact } from '../../model/Contact';
 
 @Component({
   selector: 'app-checkoutform',

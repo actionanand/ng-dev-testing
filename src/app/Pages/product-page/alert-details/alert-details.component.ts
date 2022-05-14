@@ -3,7 +3,7 @@ import { EventEmitter } from '@angular/core';
 import { Output } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 
-import { Product } from '../model/product';
+import { Product } from '../../../model/product';
 
 @Component({
   selector: 'app-alert-details',
