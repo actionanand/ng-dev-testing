@@ -10,9 +10,10 @@ import { Product } from '../../../model/product';
 })
 export class ProductDetailsComponent implements OnInit {
 
-  title : string = 'AR Solutions';
+  title = 'Product List';
   products : Product[] = products;
   isUnchanged = true;
+  buttonTxt = 'Enable';
 
   constructor() { }
 
@@ -26,6 +27,7 @@ export class ProductDetailsComponent implements OnInit {
 
   enableBuying() {
     this.isUnchanged  = !this.isUnchanged;
+    this.isUnchanged ? this.buttonTxt = 'Enable' : this.buttonTxt = 'Disable';
   }
 
 }
