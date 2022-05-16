@@ -11,7 +11,7 @@ import { Product } from '../../model/product';
   styleUrls: ['./product-shop.component.css']
 })
 export class ProductShopComponent implements OnInit {
-  product:Product;
+  product: Product;
   submitted = false;
   text : string = 'Add to Cart';
   disabledButton = false;
@@ -21,7 +21,7 @@ export class ProductShopComponent implements OnInit {
 
     //code to retrieve product
     //ActivatedRoute
-    //service can be injected into component class by calling its object 
+    //service can be injected into component class by calling its object
     //in constructor  - (Dependency Injection)
     const routeParams =this.route.snapshot.paramMap;
     const id = Number(routeParams.get('productId'));
