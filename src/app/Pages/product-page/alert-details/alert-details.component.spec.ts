@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { Product } from '../../../model/product';
 
 import { AlertDetailsComponent } from './alert-details.component';
@@ -6,6 +6,7 @@ import { AlertDetailsComponent } from './alert-details.component';
 describe('AlertDetailsComponent', () => {
   let component: AlertDetailsComponent;
   let fixture: ComponentFixture<AlertDetailsComponent>;
+
   const stubProduct : Product =
   {
     id: 3,
@@ -27,47 +28,64 @@ describe('AlertDetailsComponent', () => {
     imgaddress : "https://rahulshettyacademy.com/rs_admin/public/images/courses/webservices-rest-api-testing-with-soapui_1591015296_soapui.jpg"
   };
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
+  // beforeEach(async () => {
+  //   await TestBed.configureTestingModule({
+  //     declarations: [ AlertDetailsComponent ]
+  //   })
+  //   .compileComponents()
+  //   .then(() => {
+  //     fixture = TestBed.createComponent(AlertDetailsComponent);
+  //     component = fixture.componentInstance;
+  //     component.product = stubProduct;
+  //     fixture.detectChanges();
+  //   });
+  // });
+
+  // beforeEach(() => {
+  //   fixture = TestBed.createComponent(AlertDetailsComponent);
+  //   component = fixture.componentInstance;
+  //   component.product = stubProduct;
+  //   fixture.detectChanges();
+  // });
+
+  beforeEach(waitForAsync( () => {
+    TestBed.configureTestingModule({
       declarations: [ AlertDetailsComponent ]
     })
-    .compileComponents();
-  });
+    .compileComponents()
+    .then(() => {
+      fixture = TestBed.createComponent(AlertDetailsComponent);
+      component = fixture.componentInstance;
+      component.product = stubProduct;
+      fixture.detectChanges();
+    });
+  }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(AlertDetailsComponent);
-    component = fixture.componentInstance;
-    component.product =stubProduct;
-    fixture.detectChanges();
+  it('should create', () => {
+    expect(component).toBeTruthy();
+    const el :HTMLElement = fixture.nativeElement;
+    const p= el.querySelector("p");
+    expect(p.textContent).toEqual("Course is available for discount");
+
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
-   const el :HTMLElement = fixture.nativeElement;
-   const p= el.querySelector("p");
-   expect(p.textContent).toEqual("Course is available for discount");
-
-
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-   const el :HTMLElement = fixture.nativeElement;
-   const p= el.querySelector("p");
-   expect(p.textContent).toEqual("Course is available for discount");
-
+    const el :HTMLElement = fixture.nativeElement;
+    const p= el.querySelector("p");
+    expect(p.textContent).toEqual("Course is available for discount");
 
   });
 
   it('Verify Paragraph logic', () => {
     expect(component).toBeTruthy();
-   const el :HTMLElement = fixture.nativeElement;
-   const p= el.querySelectorAll("p")
-   expect(p.length).toEqual(2);
-   component.product =stubProduct2;
+    const el :HTMLElement = fixture.nativeElement;
+    const p= el.querySelectorAll("p")
+    expect(p.length).toEqual(2);
+    component.product =stubProduct2;
     fixture.detectChanges();
     const el2 :HTMLElement = fixture.nativeElement;
-   const p2= el2.querySelectorAll("p")
+    const p2= el2.querySelectorAll("p")
     expect(p2.length).toEqual(0);
 
   });

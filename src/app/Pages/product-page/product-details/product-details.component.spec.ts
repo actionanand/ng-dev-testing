@@ -48,10 +48,10 @@ describe('ProductDetailsComponent', () => {
 
   it('Verify title of the Product-details Component', () => {
 
-   const element : HTMLElement= fixture.nativeElement;
-   const header = element.querySelector('h1');
+    const element : HTMLElement= fixture.nativeElement;
+    const header = element.querySelector('h1');
 
-   expect(header.textContent.trim()).toEqual(component.title);
+    expect(header.textContent.trim()).toEqual(component.title);
 
   });
 

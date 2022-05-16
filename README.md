@@ -44,6 +44,12 @@ ng deploy --base-href=/ng-dev-testing/
 
 * [Source](https://blog.bitsrc.io/deploy-your-angular-project-to-github-pages-7cbacb96f35b)
 * [How to deploy a React, Angular and Vue project to Github pages](https://deepinder.me/how-to-deploy-a-react-angular-vue-project-to-github-pages)
+* [Mocking Route params in Angular unit tests](https://www.joshuacolvin.net/mocking-activated-route-data-in-angular/)
+* [Testing Angular routing components with the RouterTestingModule](https://dev.to/this-is-angular/testing-angular-routing-components-with-the-routertestingmodule-4cj0)
+* [Writing Angular Test Cases for Router, Service, ActivatedRoute](https://medium.com/@akankshasingh872/writing-angular-test-cases-for-router-service-activatedroute-f28df460487a)
+* [Mock ActivatedRoute with params, data and snapshot](https://gist.github.com/benjamincharity/3d25cd2c95b6ecffadb18c3d4dbbd80b)
+* [An Introduction to Jasmine Unit Testing](https://www.freecodecamp.org/news/jasmine-unit-testing-tutorial-4e757c2cbf42/)
+* [Overriding Components for Testing](https://angular-training-guide.rangle.io/testing/components/injecting-dependencies/overriding)
 
 ## Further help
 

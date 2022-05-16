@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { CartService } from '../../services/cart.service';
 import { CartItemsComponent } from './cart-items.component';
@@ -9,21 +9,43 @@ describe('CartItemsComponent', () => {
   let fixture: ComponentFixture<CartItemsComponent>;
   let cartService : CartService;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
+  // beforeEach(async () => {
+  //   await TestBed.configureTestingModule({
+  //     declarations: [ CartItemsComponent ],
+  //    providers :[{provide : CartService,useClass : MockCartService}]
+  //   })
+  //   .compileComponents()
+  //   .then(() => {
+  //     fixture = TestBed.createComponent(CartItemsComponent);
+  //     cartService =TestBed.inject(CartService);
+
+  //     component = fixture.componentInstance;
+  //     fixture.detectChanges();
+  //   });
+  // });
+
+  // beforeEach(() => {
+  //   fixture = TestBed.createComponent(CartItemsComponent);
+  //   cartService =TestBed.inject(CartService);
+
+  //   component = fixture.componentInstance;
+  //   fixture.detectChanges();
+  // });
+
+  beforeEach(waitForAsync( () => {
+    TestBed.configureTestingModule({
       declarations: [ CartItemsComponent ],
-     providers :[{provide : CartService,useClass : MockCartService}]
+      providers :[{provide : CartService,useClass : MockCartService}]
     })
-    .compileComponents();
-  });
+    .compileComponents()
+    .then(() => {
+      fixture = TestBed.createComponent(CartItemsComponent);
+      cartService =TestBed.inject(CartService);
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(CartItemsComponent);
-    cartService =TestBed.inject(CartService);
-
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+      component = fixture.componentInstance;
+      fixture.detectChanges();
+    });
+  }));
 
   it('should create', () => {
     expect(component).toBeTruthy();
@@ -33,10 +55,6 @@ describe('CartItemsComponent', () => {
     expect(component.sum).toBe(75);
     const el :HTMLElement =fixture.nativeElement;
     expect(el.querySelector(".mint").textContent).toBe("83");
-    
 
-
-
-  
   });
 });

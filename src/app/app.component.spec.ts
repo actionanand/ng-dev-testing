@@ -1,35 +1,54 @@
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+
 import { AppComponent } from './app.component';
 
+
 describe('AppComponent', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
+  let fixture: ComponentFixture<AppComponent>;
+  let component: AppComponent;
+
+  // beforeEach(async () => {
+  //   await TestBed.configureTestingModule({
+  //     imports: [
+  //       RouterTestingModule
+  //     ],
+  //     declarations: [
+  //       AppComponent
+  //     ],
+  //   }).compileComponents()
+  //   .then(() => {
+  //     fixture = TestBed.createComponent(AppComponent);
+  //     component = fixture.componentInstance;
+  //   });
+  // });
+
+  beforeEach(waitForAsync( () => {
+    TestBed.configureTestingModule({
       imports: [
         RouterTestingModule
       ],
       declarations: [
         AppComponent
       ],
-    }).compileComponents();
-  });
+    }).compileComponents()
+    .then(() => {
+      fixture = TestBed.createComponent(AppComponent);
+      component = fixture.componentInstance;
+    });
+  }));
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 
-  it(`should have as title 'AppDevTest'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('AppDevTest');
+  it(`should have as title 'ng-dev-testing'`, () => {
+    expect(component.title).toEqual('ng-dev-testing');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('AppDevTest app is running!');
-  });
+  // it('should render title', () => {
+  //   fixture.detectChanges();
+  //   const compiled = fixture.nativeElement;
+  //   expect(compiled.querySelector('.content span').textContent).toContain('AppDevTest app is running!');
+  // });
 });

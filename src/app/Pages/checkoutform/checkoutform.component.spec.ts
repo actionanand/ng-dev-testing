@@ -14,7 +14,7 @@ describe('CheckoutformComponent', () => {
   email:"test@test.com",password:"123456"};
 
   beforeEach(fakeAsync( () => {
-     TestBed.configureTestingModule({
+      TestBed.configureTestingModule({
       imports : [FormsModule],
       declarations: [ CheckoutformComponent ]
     })
@@ -44,24 +44,14 @@ describe('CheckoutformComponent', () => {
 
   it('User input field', fakeAsync(() => {
 
-   const email= fixture.nativeElement.querySelector("#exampleInputEmail1");
-   email.value = 'I am Testing';
-   email.dispatchEvent(new Event('input'));
-   fixture.detectChanges();
-   tick();
-   const message= fixture.nativeElement.querySelector("p");
-   expect(message.textContent).toMatch("I am Testing");
+    const email= fixture.nativeElement.querySelector("#exampleInputEmail1");
+    email.value = 'I am Testing';
+    email.dispatchEvent(new Event('input'));
+    fixture.detectChanges();
+    tick();
+    const message= fixture.nativeElement.querySelector("p");
+    expect(message.textContent).toMatch("I am Testing");
 
-
-
-   
-
-   
-
-
-
-
-
-}));
+  }));
 
 });
